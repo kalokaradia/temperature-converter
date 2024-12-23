@@ -1,0 +1,54 @@
+<div class="container mt-5">
+	<h1 class="fw-bold">Masukkan suhu awal:</h1>
+
+	<form class="mt-5" method="post">
+		{% csrf_token %}
+		<div class="mb-3">
+			<label for="suhu_awal" class="form-label fs-4">Suhu awal:</label>
+			<input
+				type="number"
+				class="form-control w-25 bg-light"
+				id="suhu_awal"
+				name="suhu_awal"
+			/>
+		</div>
+		<div class="mb-3">
+			<label for="tipe_suhu_awal" class="form-label fs-4"
+				>Tipe suhu awal:</label
+			>
+			<select
+				id="tipe_suhu_awal"
+				name="tipe_suhu_awal"
+				class="form-select w-25 bg-light"
+			>
+				<option>Celcius</option>
+				<option>Reamur</option>
+				<option>Fahrenheit</option>
+				<option>Kelvin</option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label for="tipe_suhu_akhir" class="form-label fs-4"
+				>Tipe suhu akhir:</label
+			>
+			<select
+				id="tipe_suhu_akhir"
+				name="tipe_suhu_akhir"
+				class="form-select w-25 bg-light"
+			>
+				<option>Celcius</option>
+				<option>Reamur</option>
+				<option>Fahrenheit</option>
+				<option>Kelvin</option>
+			</select>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	{% if hasil %}
+	<div class="mt-5">
+		<h2 class="fw-bold">Hasil:</h2>
+		<p class="fs-4">{{ hasil }} {{ tipe_suhu_akhir }}</p>
+	</div>
+	{% endif %}
+</div>
